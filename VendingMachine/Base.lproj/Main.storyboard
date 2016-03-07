@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -46,6 +47,10 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <color key="tintColor" red="0.96862745100000003" green="0.80000000000000004" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Add $5"/>
+                                                <connections>
+                                                    <action selector="addFunds" destination="BYZ-38-t0r" eventType="touchUpInside" id="OJr-OM-0GN"/>
+                                                    <segue destination="pCb-i8-kRH" kind="presentation" id="nMG-tm-f1B"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -125,12 +130,15 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="xsJ-mF-Vul">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="xsJ-mF-Vul">
                                                 <rect key="frame" x="472" y="13" width="94" height="29"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="updateQuantity:" destination="BYZ-38-t0r" eventType="valueChanged" id="tHh-yD-R8n"/>
+                                                </connections>
                                             </stepper>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.11764705882352941" green="0.14117647058823529" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.10980392156862745" green="0.13333333333333333" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="xsJ-mF-Vul" firstAttribute="centerY" secondItem="F6l-1B-VrA" secondAttribute="centerY" id="9of-z5-BK9"/>
                                             <constraint firstItem="ehp-um-cli" firstAttribute="centerY" secondItem="F6l-1B-VrA" secondAttribute="centerY" id="MmW-sU-VNp"/>
@@ -149,6 +157,9 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Purchase"/>
+                                        <connections>
+                                            <action selector="purchase" destination="BYZ-38-t0r" eventType="touchUpInside" id="zWi-Yo-hVd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -176,6 +187,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1020" y="657"/>
+        </scene>
+        <!--Deposit Controller-->
+        <scene sceneID="PK9-zL-dXH">
+            <objects>
+                <viewController id="pCb-i8-kRH" customClass="DepositController" customModule="VendingMachineSimulator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M1y-f6-Oze"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Vn-1I-G4q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TbH-Ca-XN2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Funds Successfully Added!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYn-Xl-1nS">
+                                <rect key="frame" x="196" y="289" width="208" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqM-lp-MeR">
+                                <rect key="frame" x="0.0" y="544" width="600" height="56"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="4Cf-fW-tpJ"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="56" id="MJA-bL-NBh"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="yze-4v-eUA"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismiss" destination="pCb-i8-kRH" eventType="touchUpInside" id="GZK-u3-Ehi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10980392156862745" green="0.13333333333333333" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="0Vn-1I-G4q" firstAttribute="top" secondItem="uqM-lp-MeR" secondAttribute="bottom" id="K1y-zY-aZm"/>
+                            <constraint firstItem="KYn-Xl-1nS" firstAttribute="centerY" secondItem="TbH-Ca-XN2" secondAttribute="centerY" id="Xth-un-F0c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uqM-lp-MeR" secondAttribute="trailing" constant="-20" id="cNZ-1c-OfI"/>
+                            <constraint firstItem="uqM-lp-MeR" firstAttribute="leading" secondItem="TbH-Ca-XN2" secondAttribute="leadingMargin" constant="-20" id="l9k-Hh-eB2"/>
+                            <constraint firstItem="KYn-Xl-1nS" firstAttribute="centerX" secondItem="TbH-Ca-XN2" secondAttribute="centerX" id="ukP-Xf-HhD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6H-h8-bVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1677" y="657"/>
         </scene>
     </scenes>
     <resources>
